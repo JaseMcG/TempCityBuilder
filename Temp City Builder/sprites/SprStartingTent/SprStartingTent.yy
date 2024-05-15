@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"be7dc94b-62fb-4d70-bebe-aba1287a75af","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Buildings",
     "path": "folders/Sprites/Buildings.yy",
@@ -60,7 +60,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 16,
-    "yorigin": 16,
+    "yorigin": 23,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

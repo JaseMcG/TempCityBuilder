@@ -25,8 +25,9 @@ if(mapComplete == false){
 //}
 
 
+
 //Create height Map
-	
+	var X = xStart;
 for (var col = 0; col < roomY; col += 1){
 				
 	var Y = yStart;
@@ -97,6 +98,66 @@ for (var col = 0; col < roomY; col += 1){
 				
 	X += mapInc;
 }
+
+//Create Resource Map
+var X = xStart;
+for (var col = 0; col < roomY; col += 1){
+				
+	var Y = yStart;
+	for(var row = 0; row < roomX; row += 1){
+					
+		var _val =  PerlinNoise(X, Y);
+
+		var _resourceval = floor(MapValue(_val, -1, 1, 0, 12));//0-number of biomes
+		var _resource = 2;
+		
+		if (_resourceval <= treeSpawn)	{_resource = 0;}
+		if (_resourceval = treeSpawn+1)	{_resource = 1;}
+		//if (_resourceval = 6)			{_resource = 2;}
+		if (_resourceval = rockSpawn-1)	{_resource = 3;}
+		if (_resourceval >= rockSpawn)	{_resource = 4;}
+		
+		
+		if(!instance_place(tileSize*row, tileSize*col,ObjResourceTiles)){		
+			var tile = instance_create_layer(tileSize*row, tileSize*col,"Ground_Layer", ObjResourceTiles);
+			with(tile){
+				Sprite = SprResourceTiles;
+				Frame = _resource;
+			}
+		}
+		
+		//spawn Resources
+		var ground = instance_position(tileSize*row,tileSize*col,ObjTiles);
+		//spawn Trees
+		if(_resource = 4 ){
+			if(irandom(100) <= treeSpawnRate){
+				var tree = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjOakTrees);
+			}
+		}
+		if(_resource = 3 ){
+			if(irandom(100) <= treeSpawnRate/2){
+				var tree = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjOakTrees);
+			}
+		}
+		
+		//spawn Rocks
+		if(_resource = 0 ){
+			if(irandom(100) <= rockSpawnRate){
+				var rock = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjRocks);
+			}
+		}
+		if(_resource = 1 ){
+			if(irandom(100) <= rockSpawnRate/2){
+				var rock = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjRocks);
+			}
+		}
+		
+		Y += resourceInc;
+	}
+				
+	X += resourceInc;
+}
+
 
 mapComplete = true;
 

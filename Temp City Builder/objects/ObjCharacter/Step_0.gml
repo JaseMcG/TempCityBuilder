@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+event_inherited();
 
 //character idle
 
@@ -25,7 +25,8 @@ if(State != CharState.idle){
 }
 if(State == CharState.wander){
 
-	
+	x = x + (choose(-1,0,1) * global.GameSpeed);
+	y = y + (choose(-1,0,1) * global.GameSpeed);
 }
 
 

@@ -17,8 +17,10 @@ gameScreenSize	= global.GameSize;
 gameMapType		= 0;
 gameMapBiome	= 0;
 
-xBuffer			= 0;
-yBuffer			= 0;
+xBuffer			= 64;
+yBuffer			= 64;
+startXBuffer	= 80;
+startYBuffer	= 64;
 
 Sprite			= SprSmallButtons;
 startSprite		= SprStartButton

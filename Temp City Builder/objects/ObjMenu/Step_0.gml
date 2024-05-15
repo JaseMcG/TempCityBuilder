@@ -3,10 +3,10 @@
 
 if(gameStart == false && gamePause == -1){
 	
-	xBuffer			= 8 * global.GameSize;
-	yBuffer			= 8 * global.GameSize;
-	Width	= 2 * global.GameSize * ObjGame.screenSizeX;
-	Height	= 2 * global.GameSize * ObjGame.screenSizeY;
+	//xBuffer			= 8 * global.GameSize;
+	//yBuffer			= 8 * global.GameSize;
+	//Width	= 2 * global.GameSize * ObjGame.screenSizeX;
+	//Height	= 2 * global.GameSize * ObjGame.screenSizeY;
 	/*
 	
 	240,135
@@ -109,8 +109,8 @@ if(gameStart == false && gamePause == -1){
 	//Start Button
 	#region Start Button
 	
-	startButton = point_in_rectangle(mouse_x,mouse_y,64*global.GameSize+xBuffer,64*global.GameSize+yBuffer,
-													 96*global.GameSize+xBuffer,80*global.GameSize+yBuffer);
+	startButton = point_in_rectangle(mouse_x,mouse_y,Width - (startXBuffer*global.GameSize), Height - (startYBuffer*global.GameSize),
+													 Width - ((startXBuffer-32)*global.GameSize), Height - ((startYBuffer-16)*global.GameSize));
 	if(startButton == true){
 		frameStartButton = 1
 		if(global.m1){

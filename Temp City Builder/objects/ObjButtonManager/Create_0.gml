@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-Width	= ObjGenerator.tileSize * ObjGame.screenSizeX;//display_get_width();
+Width	= 2 * global.GameSize * ObjGame.screenSizeX;//display_get_width();
+Height	= 2 * global.GameSize * ObjGame.screenSizeY;
 
 Button = 0;
 buttonMax = 6;

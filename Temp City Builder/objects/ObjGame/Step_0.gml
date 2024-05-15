@@ -15,19 +15,26 @@ global.m2Release	= mouse_check_button_released(mouse2);
 //not in debug mode
 if(keyboard_check_pressed(vk_f4)){global.GameSpeed--;}
 if(keyboard_check_pressed(vk_f5)){global.GameSpeed++;}
+if(debugToggle == 0){
+	global.GameSpeed = clamp(global.GameSpeed,0,gameSpeedMax);
+}
+
 
 //in debug mode
 if(keyboard_check_pressed(vk_f3)){
-debugToggle = !debugToggle;
+	debugToggle = !debugToggle;
 }
 if(debugToggle == 1){
 	
 	if(keyboard_check_pressed(vk_f1)){
 		game_restart();
 	}
-	
+	if(keyboard_check_pressed(vk_f7)){
+		randomize();
+	}
 	if(keyboard_check_released(vk_f7)){
 		if(instance_exists(ObjGenerator)){
+			
 			ObjGenerator.mapComplete = false;
 		}
 	}

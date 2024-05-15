@@ -25,7 +25,7 @@ if(gameStart = false){
 					global.GameSize,global.GameSize,0,c_white,1);
 
 	//draw start button
-	draw_sprite_ext(startSprite,frameStartButton,64*global.GameSize+xBuffer,64*global.GameSize+yBuffer,
+	draw_sprite_ext(startSprite,frameStartButton,Width - (startXBuffer*global.GameSize),Height - (startYBuffer*global.GameSize),
 					global.GameSize,global.GameSize,0,c_white,startAlpha);
 
 
@@ -62,7 +62,8 @@ if(gameStart = false){
 	//draw start button
 	draw_set_color(c_white);
 	if(startButton){draw_set_color(c_yellow);}
-	draw_rectangle(64*global.GameSize+xBuffer,64*global.GameSize+yBuffer,96*global.GameSize+xBuffer,80*global.GameSize+yBuffer,1);
+	draw_rectangle(Width - (startXBuffer*global.GameSize), Height - (startYBuffer*global.GameSize),
+							Width - ((startXBuffer-32)*global.GameSize), Height - ((startYBuffer-16)*global.GameSize),1);
 	
 	//Paused debug
 	if(gamePause == 1){

@@ -6,7 +6,7 @@
 //create buttons
 buttonAmount = instance_number(ObjButton);
 if(Button > 0 && buttonMax > 0){
-	button = instance_create_layer(((buttonAmount+1)*20)*global.GameSize,16*global.GameSize,"instances",ObjButton);
+	button = instance_create_layer(((buttonAmount+1)*20)*global.GameSize,Height-16*global.GameSize,"instances",ObjButton);
 	with(button){
 		buttonType = other.buttonType;
 	}

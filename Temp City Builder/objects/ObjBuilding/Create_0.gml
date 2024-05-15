@@ -8,6 +8,8 @@ maxHp		= 10;
 Hp			= maxHp;
 
 meterSize	= 10;
+meterHeight	= 16;
+meterWidth	= 2;
 
 Built		= 0;
 buildTime	= 0;
@@ -20,10 +22,13 @@ housingTimer	= 0;
 
 enum Building{
 	castle,
-	house,
-	woodcuttinghut,
+	hut,
+	choppinghut,
+	pickinghut,
+	studyhut,
 	lumbermill,
-	mininghut,
+	forge,
+	blacksmith
 	
 }
 

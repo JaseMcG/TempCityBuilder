@@ -16,6 +16,9 @@ timePassed	= 0;
 
 buildSpeed	= 1;//withgamespeed
 meterSize	= 3;
+meterHeight	= 10;
+meterWidth	= 1;
+
 enum CharState{
 	idle,
 	wander,

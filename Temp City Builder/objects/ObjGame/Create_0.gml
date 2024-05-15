@@ -7,8 +7,9 @@ randomise();
 //random_set_seed(2969536331);
 
 //Global Vars
-global.GameSpeed		= 1;
+global.GameSpeed	= 1;
 global.GameSize		= 4;
+gameSpeedMax		= 3;
 
 enum Biome{
 	coastal,
@@ -25,7 +26,7 @@ screenSizeY			=135/2;
 
 
 //Debug Vars
-debugToggle			=0;
+debugToggle			= 0;
 
 //Create Menu
 if(!instance_exists(ObjMouse)){
