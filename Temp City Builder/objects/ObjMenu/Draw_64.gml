@@ -66,7 +66,7 @@ if(gameStart = false){
 							Width - ((startXBuffer-32)*global.GameSize), Height - ((startYBuffer-16)*global.GameSize),1);
 	
 	//Paused debug
-	if(gamePause == 1){
+	if(global.GamePaused == 1){
 		
 		//draw game size
 		draw_set_color(c_white);
@@ -98,7 +98,7 @@ if(gameStart = false){
 
 }
 
-if(gamePause == true){
+if(global.GamePaused == true){
 	draw_set_alpha(.5);
 	draw_set_color(c_white);
 	draw_rectangle(0,0,Width,Height,0);

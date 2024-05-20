@@ -4,15 +4,19 @@
 
 //vars
 
-Width		= 8 * ObjGame.screenSizeX;
-Height		= 8 * ObjGame.screenSizeY;
-XOffset		= 16 * global.GameSize;
-YOffset		= 8 * global.GameSize;
+Width			= 8 * ObjGame.screenSizeX;
+Height			= 8 * ObjGame.screenSizeY;
+XOffset			= 16 * global.GameSize;
+YOffset			= (16 * global.startingOffset) * global.GameSize;
+
+allButtons		= 0;	
+
+maxResources	= 999;
 
 //Starting Resources
-startFood		= 5;
+startFood		= 0;
 startWealth		= 0;
-startHappy		= 5;//1 to 10, 1 = unhappy, 10 = happy
+startHappy		= 0;//1 to 10, 1 = unhappy, 10 = happy
 startResearch	= 0;
 
 startlumber		= 0;

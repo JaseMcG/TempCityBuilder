@@ -32,7 +32,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "SprResourceHitBox",
+    "path": "sprites/SprResourceHitBox/SprResourceHitBox.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

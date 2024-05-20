@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+draw_set_font(FonPixel);
 var d = 32;
 draw_set_color(c_fuchsia);
-draw_text(x,y+d*0,"debug on:" + string(debugToggle));
+//draw_text(x,y+d*0,"debug on:" + string(debugToggle));
 if(debugToggle == 1){
 	
 	
@@ -14,7 +14,7 @@ if(debugToggle == 1){
 		draw_text(x,y+d*7,"height:" + string(ObjGenerator.worldScaleY));
 	}
 	if(instance_exists(ObjMenu)){
-		draw_text(x,y+d*4,"paused:" + string(ObjMenu.gamePause));
+		draw_text(x,y+d*4,"paused:" + string(global.GamePaused));
 		if(ObjMenu.gameStart == false){
 			draw_text(x,y+d*3,"prevgamespeed:" + string(ObjMenu.prevGameSpeed));
 			draw_text(x,y+d*8,"ScreenSize:" + string(ObjMenu.gameScreenSize));

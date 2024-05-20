@@ -9,5 +9,5 @@ event_inherited();
 
 Sprite			= SprStartingTent;
 Frame			= 0;
-buildingType	= Building.castle;
+buildingType	= Building.start;
 Housing			= 3;

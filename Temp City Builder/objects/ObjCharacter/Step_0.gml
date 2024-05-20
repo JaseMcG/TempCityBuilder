@@ -11,13 +11,13 @@ if(State == CharState.idle){
 	}
 	if(idleTime <= idleTimer){
 		var i = irandom(1)
-		if(i == 1){
+		//if(i == 1){
 			idleTimer = 0;
 			Facing = Facing * -1;
-		}
-		if(i == 0){
-			State = CharState.wander;
-		}
+		//}
+		//if(i == 0){
+			//State = CharState.wander;
+		//}
 	}
 }
 if(State != CharState.idle){
@@ -25,8 +25,8 @@ if(State != CharState.idle){
 }
 if(State == CharState.wander){
 
-	x = x + (choose(-1,0,1) * global.GameSpeed);
-	y = y + (choose(-1,0,1) * global.GameSpeed);
+	//x = x + (choose(-1,0,1) * global.GameSpeed);
+	//y = y + (choose(-1,0,1) * global.GameSpeed);
 }
 
 

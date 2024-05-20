@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//reset vars
+
+global.genTick = 0;
+
 //inputes
 
 global.m1			= mouse_check_button(mouse1);
@@ -8,6 +12,15 @@ global.m2			= mouse_check_button(mouse2);
 
 global.m1Release	= mouse_check_button_released(mouse1);
 global.m2Release	= mouse_check_button_released(mouse2);
+
+global.rotate		= keyboard_check_pressed(Rotate);
+
+//generator
+global.genTimer += 1 * global.GameSpeed;
+if(global.genTimer >= global.genTime){
+	global.genTick	= 1;
+	global.genTimer = 0;
+}
 
 
 //Debug options

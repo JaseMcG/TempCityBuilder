@@ -14,6 +14,7 @@ biomeInc = 0.02;//changes biome noise amount
 treeSpawn = 3;
 rockSpawn = 9;
 treeSpawnRate = 2;//out of 100
+bushSpawnRate = 4;
 rockSpawnRate = 2;//out of 100
 
 tileSize = 2 * global.GameSize;

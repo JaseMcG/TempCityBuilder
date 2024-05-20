@@ -5,7 +5,6 @@
 //variables
 
 gameStart		= false;
-gamePause		= -1;
 
 prevGameSpeed	= 0;
 

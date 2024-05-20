@@ -132,11 +132,19 @@ for (var col = 0; col < roomY; col += 1){
 		if(_resource = 4 ){
 			if(irandom(100) <= treeSpawnRate){
 				var tree = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjOakTrees);
+			}else{
+				if(irandom(100) <= bushSpawnRate){
+					var bush = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjBerryBush);
+				}
 			}
 		}
 		if(_resource = 3 ){
 			if(irandom(100) <= treeSpawnRate/2){
 				var tree = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjOakTrees);
+			}else{
+				if(irandom(100) <= bushSpawnRate/2){
+					var bush = instance_create_layer(tileSize*row, tileSize*col,"Instances", ObjBerryBush);
+				}
 			}
 		}
 		

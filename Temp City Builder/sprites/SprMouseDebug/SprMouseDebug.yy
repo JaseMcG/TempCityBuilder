@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "UI",
-    "path": "folders/Sprites/UI.yy",
+    "name": "Mouse",
+    "path": "folders/Sprites/UI/Mouse.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

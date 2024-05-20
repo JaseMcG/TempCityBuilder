@@ -4,14 +4,10 @@
 
 depth = -y;
 
-draw_sprite_ext(Sprite,Frame,x,y,global.GameSize*Facing,global.GameSize,0,c_white,1);
+draw_sprite_ext(Sprite,Frame,x,y,global.GameSize*Facing,global.GameSize,0,Colour,1);
 
 
-
-
-
-
-
+event_inherited();
 
 
 

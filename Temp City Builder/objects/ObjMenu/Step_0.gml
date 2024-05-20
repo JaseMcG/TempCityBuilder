@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if(gameStart == false && gamePause == -1){
+if(gameStart == false && global.GamePaused == -1){
 	
 	//xBuffer			= 8 * global.GameSize;
 	//yBuffer			= 8 * global.GameSize;
@@ -135,18 +135,18 @@ if(gameStart == false && gamePause == -1){
 //if(gameStart == true){
 	if(keyboard_check_pressed(vk_escape)){
 
-		gamePause = gamePause * -1;
-		if(gamePause == 1){
+		global.GamePaused = global.GamePaused * -1;
+		if(global.GamePaused == 1){
 			prevGameSpeed = global.GameSpeed;
 		}
-		if(gamePause == -1){
+		if(global.GamePaused == -1){
 			global.GameSpeed = prevGameSpeed;
 		}
 	}
 
 //}
 
-if(gamePause == 1){
+if(global.GamePaused == 1){
 	
 	
 	global.GameSpeed = 0;

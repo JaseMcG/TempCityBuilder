@@ -3,6 +3,8 @@
 
 Sprite		= 0;
 Frame		= 0;
+Facing		= 1;
+buildingType	= Building.none;
 
 maxHp		= 10;
 Hp			= maxHp;
@@ -15,23 +17,19 @@ Built		= 0;
 buildTime	= 0;
 timeToBuild	= 300;
 
+//resource vars
+generator	= 0;
+//genTime	= 200;//use global vars
+//genTimer	= 0;
+initialRec	= 0;
+genStrength	= 0;
+
+//housing
 Housing			= 0;
 Residents		= 0;
 housingTime		= 200;
 housingTimer	= 0;
 
-enum Building{
-	castle,
-	hut,
-	choppinghut,
-	pickinghut,
-	studyhut,
-	lumbermill,
-	forge,
-	blacksmith
-	
-}
 
-buildingType	= Building.castle;
 
 

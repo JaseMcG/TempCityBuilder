@@ -5,7 +5,8 @@
 
 
 
-draw_sprite_ext(Sprite,Frame,x,y,global.GameSize,global.GameSize,0,c_white,1);
+draw_sprite_ext(SprButtons,Frame,x,y,global.GameSize,global.GameSize,0,c_white,1);
+
 
 
 if(ObjGame.debugToggle == true){

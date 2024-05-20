@@ -3,10 +3,9 @@
 
 
 
-Width	= ObjGenerator.tileSize * 150;//display_get_width();
-Sprite	= SprButtons;
-Frame	= 0;
-
+Width		= ObjGenerator.tileSize * 150;//display_get_width();
+Sprite		= SprButtons;
+Frame		= 0;
 
 
 
