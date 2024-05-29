@@ -22,6 +22,36 @@ if(global.genTimer >= global.genTime){
 	global.genTimer = 0;
 }
 
+#region World Time
+//World Time 
+if(instance_exists(ObjMenu)){
+	var _alpha = .5;
+	if(ObjMenu.gameStart == 1){
+		gameTimer += 1 * global.GameSpeed;
+		if(gameTimer >= dayTime + nightTime){
+			gameTimer = 0;
+		}
+		if(gameTimer == 0){
+			Day++;
+		}
+		
+		nightAlpha = clamp(nightAlpha,0,_alpha);
+		if(gameTimer > dayTime){
+			nightAlpha += .005 * global.GameSpeed;
+		}
+
+		if(gameTimer < dayTime){
+			nightAlpha -= .005 * global.GameSpeed;
+		}
+	}
+	
+	//determine Time
+	if(nightAlpha <= 0){global.GameTime = Time.day;}
+	if(nightAlpha >= _alpha){global.GameTime = Time.night;}
+
+}
+
+#endregion
 
 //Debug options
 
@@ -45,7 +75,7 @@ if(debugToggle == 1){
 	if(keyboard_check_pressed(vk_f7)){
 		randomize();
 	}
-	if(keyboard_check_released(vk_f7)){
+	if(keyboard_check_released(vk_f8)){
 		if(instance_exists(ObjGenerator)){
 			
 			ObjGenerator.mapComplete = false;

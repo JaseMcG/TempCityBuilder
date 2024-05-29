@@ -15,8 +15,4 @@
 // Inherit the parent event
 event_inherited();
 
-Sprite			= SprGatheringHut;
-Frame			= 0;
-buildingType	= Building.gatheringhut;
 
-genStrength	= 1;

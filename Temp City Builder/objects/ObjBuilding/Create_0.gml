@@ -13,12 +13,15 @@ meterSize	= 10;
 meterHeight	= 16;
 meterWidth	= 2;
 
+Radius		= 32 * global.GameSize;
+
 Built		= 0;
 buildTime	= 0;
 timeToBuild	= 300;
 
 //resource vars
-generator	= 0;
+//Generator	= 0;
+Worker		= 0;
 //genTime	= 200;//use global vars
 //genTimer	= 0;
 initialRec	= 0;

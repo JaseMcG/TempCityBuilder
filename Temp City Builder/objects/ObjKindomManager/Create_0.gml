@@ -6,8 +6,8 @@
 
 Width			= 8 * ObjGame.screenSizeX;
 Height			= 8 * ObjGame.screenSizeY;
-XOffset			= 16 * global.GameSize;
-YOffset			= (16 * global.startingOffset) * global.GameSize;
+XOffset			= (8) * global.GameSize;
+YOffset			= (8) * global.GameSize;
 
 allButtons		= 0;	
 

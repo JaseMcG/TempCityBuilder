@@ -8,8 +8,10 @@ mapComplete = 0;
 yStart = random(1000);
 xStart = random(1000);
 mapInc = 0.05;//changes noise amount
-resourceInc = 0.035;//changes resorce noise
-biomeInc = 0.02;//changes biome noise amount
+resourceInc = 0.035;//changes resource noise
+//biomeInc = 0.02;//changes biome noise amount
+riverInc = 0.01;//
+
 
 treeSpawn = 3;
 rockSpawn = 9;

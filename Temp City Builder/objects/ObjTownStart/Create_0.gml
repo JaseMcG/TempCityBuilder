@@ -7,7 +7,4 @@
 // Inherit the parent event
 event_inherited();
 
-Sprite			= SprStartingTent;
-Frame			= 0;
-buildingType	= Building.start;
-Housing			= 3;
+

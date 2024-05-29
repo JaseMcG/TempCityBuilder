@@ -29,7 +29,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "SprMeadowTiles",
+    "path": "sprites/SprMeadowTiles/SprMeadowTiles.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

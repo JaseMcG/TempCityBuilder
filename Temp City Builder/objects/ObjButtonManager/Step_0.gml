@@ -2,17 +2,21 @@
 // You can write your code in this editor
 
 //every placable button
-var offsetadgjust = -global.startingOffset;
+var offsetadgjustx = -global.startingOffset/2 + -global.startingOffset;
+var offsetadgjusty = -global.startingOffset/2;
+
+offsetadgjusty += 1;
+
 if(global.m2Release){//reset selected button
 	buttonSelected = Building.none;
 	ObjMouse.mouseHeld = Building.none;
 }
 //start button
 if(startButton){
-	offsetadgjust += 1;
+	offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		startFrame = 1;
 		if(global.m1 = 1){
@@ -37,10 +41,10 @@ if(startButton){
 
 //hut button
 if(hutButton){
-	offsetadgjust += 1;
+	offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		hutFrame = 1;
 		if(global.m1 = 1){
@@ -62,11 +66,11 @@ if(hutButton){
 
 //gathering button
 if(gatheringButton){
-	offsetadgjust += 1;
-	//if(!hutButton){offsetadgjust += global.startingOffset;}else offsetadgjust += 1;
+	offsetadgjustx += 1;
+	//if(!hutButton){offsetadgjustx += global.startingOffset;}else offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		gatheringFrame = 1;
 		if(global.m1 = 1){
@@ -88,11 +92,11 @@ if(gatheringButton){
 
 //chopping button
 if(choppingButton){
-	offsetadgjust += 1;
-	//if(!hutButton){offsetadgjust += global.startingOffset;}else offsetadgjust += 1;
+	offsetadgjustx += 1;
+	//if(!hutButton){offsetadgjustx += global.startingOffset;}else offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		choppingFrame = 1;
 		if(global.m1 = 1){
@@ -114,10 +118,10 @@ if(choppingButton){
 
 //picking button
 if(pickingButton){
-	offsetadgjust += 1;
+	offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		pickingFrame = 1;
 		if(global.m1 = 1){
@@ -139,10 +143,10 @@ if(pickingButton){
 
 //study button
 if(studyButton){
-	offsetadgjust += 1;
+	offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		studyFrame = 1;
 		if(global.m1 = 1){
@@ -164,10 +168,10 @@ if(studyButton){
 
 //upgrade button
 if(upgradeButton){
-	offsetadgjust += 1;
+	offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		upgradeFrame = 1;
 		if(global.m1 = 1){
@@ -189,10 +193,10 @@ if(upgradeButton){
 
 //destroy button
 if(destroyButton){
-	offsetadgjust += 1;
+	offsetadgjustx += 1;
 	var mouse_colide = point_in_rectangle(mouse_x,mouse_y,
-						XOffset*offsetadgjust,YOffset,
-						XOffset*offsetadgjust+buttonSize,YOffset+buttonSize);
+						XOffset*offsetadgjustx,YOffset*offsetadgjusty+Height-(buttonSize*2),
+						XOffset*offsetadgjustx+buttonSize,YOffset*offsetadgjusty+Height-buttonSize);
 	if (mouse_colide == true){
 		destroyFrame = 1;
 		if(global.m1 = 1){

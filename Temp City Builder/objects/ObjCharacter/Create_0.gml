@@ -4,6 +4,8 @@
 // Vars
 maxHp		= 3;
 Hp			= maxHp;
+Home		= 0;
+workHut		= 0;
 
 maxspeed	= 2;//withgamespeed
 xSpeed		= 0;

@@ -21,8 +21,13 @@ if(Built == 1){
 				Residents++;
 				housingTimer = 0;
 				var n = 3;
-				instance_create_layer(x+irandom_range(-n,n)*global.GameSize,
+				var human = instance_create_layer(x+irandom_range(-n,n)*global.GameSize,
 				y+(8+irandom_range(-n,n))*global.GameSize,"Instances",ObjCharacter);
+				with(human){
+					Home = other.id;
+					ds_list_add(global.HumanList,self.id);
+				}
+				
 			}
 		}
 		
@@ -46,27 +51,91 @@ if(Built == 1){
 		}
 	}
 	
+	
 	// if generator
-	if(genStrength != 0 && global.genTick){//&& global.genTimer >= global.genTime -1){
-		
-		//gathering
-		if(buildingType == Building.gatheringhut){
-			ObjKindomManager.Food += genStrength;
+	if(genStrength != 0 && instance_exists(ObjCharacter)){
+		Human = 0;
+		//get worker
+		if(Worker == 0){
+			for(var i = 0; i < ds_list_size(global.HumanList); i++){
+				Human = global.HumanList[| i];
+				if(Human.workHut == 0 && Worker == 0){
+					Human.workHut = other.id;
+					Worker = Human.id;
+				}
+				
+			}
+			
+
+			//var human = instance_nearest(x,y,ObjCharacter);
+			//if(human.workHut == 0){
+			//	human.workHut = other.id;
+			//	Worker = human.id;
+			//}	
 		}
-		//chopping
-		if(buildingType == Building.choppinghut){
-			ObjKindomManager.Lumber += genStrength;
-		}
-		//picking
-		if(buildingType == Building.pickinghut){
-			ObjKindomManager.Stone += genStrength;
-		}
-		//studying
-		if(buildingType == Building.studyhut){
-			ObjKindomManager.Research += genStrength;
+		// generate
+		if(global.genTick && Worker != 0 && global.GameTime == Time.day){//&& global.genTimer >= global.genTime -1){
+			
+		var list, obj, instcount;
+			//gathering
+			if(buildingType == Building.gatheringhut){
+				
+				obj = ObjBerryBush;
+				instcount = 0;
+				with(obj){
+					if(collision_circle(x,y,other.Radius,other.id,0,0)){
+						instcount++;
+					}
+				}
+				if(ObjKindomManager.Food < ObjKindomManager.maxResources){
+					ObjKindomManager.Food +=  max(1,floor(instcount * genStrength));
+				}
+	
+			}
+			//chopping
+			if(buildingType == Building.choppinghut){
+				
+				obj = ObjTrees;
+				instcount = 0;
+				with(obj){
+					if(collision_circle(x,y,other.Radius,other.id,0,0)){
+						instcount++;
+					}
+				}
+				if(ObjKindomManager.Lumber < ObjKindomManager.maxResources){
+					ObjKindomManager.Lumber += max(1,floor(instcount * genStrength));
+				}
+			}
+			//picking
+			if(buildingType == Building.pickinghut){
+				
+				obj = ObjRocks;
+				instcount = 0;
+				with(obj){
+					if(collision_circle(x,y,other.Radius,other.id,0,0)){
+						instcount++;
+					}
+				}
+				if(ObjKindomManager.Stone < ObjKindomManager.maxResources){
+					ObjKindomManager.Stone += max(1,floor(instcount * genStrength));
+				}
+			}
+			//studying
+			if(buildingType == Building.studyhut){
+				
+				obj = ObjHut;
+				instcount = 0;
+				with(obj){
+					if(collision_circle(x,y,other.Radius,other.id,0,0)){
+						instcount++;
+					}
+				}
+				if(ObjKindomManager.Research < ObjKindomManager.maxResources){
+					ObjKindomManager.Research += max(1,floor(instcount * genStrength));
+				}
+			}
 		}
 	}
-	
 	
 }
 

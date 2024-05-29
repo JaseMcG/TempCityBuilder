@@ -39,7 +39,7 @@ if(Residents != Housing && Built == 1){
 }
 
 //draw generating meter
-if(genStrength != 0 && Built == 1){
+if(genStrength != 0 && Built == 1 && Worker != 0 && global.GameTime == Time.day){
 	var _gentimer = MapValue(global.genTimer,0,global.genTime,-meterSize,meterSize);
 	draw_set_color(c_black);
 	draw_rectangle(x-meterSize*global.GameSize,y-meterHeight*global.GameSize,
@@ -52,6 +52,9 @@ if(genStrength != 0 && Built == 1){
 
 if(ObjGame.debugToggle == 1){
 	draw_text(x,y,string(Residents)+"/"+string(Housing));
+	if(genStrength != 0){
+		draw_circle(x,y,Radius,1);
+	}
 }
 
 

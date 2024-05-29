@@ -1,17 +1,23 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
+	Cost			= 0;
 	foodCost		= 0;
 	happyCost		= 0;
-	lumberCost		= 0;
-	stoneCost		= 0;
 	wealthCost		= 0;
+	lumberCost		= 0;
+	stoneCost		= 0;	
 	researchCost	= 0;
+	
+	genStrength		= 0;
+	
+
 
 	heldX		= floor((mouse_x / global.GameSize)) * global.GameSize;
 	heldY		= floor((mouse_y / global.GameSize)) * global.GameSize;
-
+	
+	//x = mouse_x;
+	//y = mouse_y;
 
 if(mouseHeld != Building.none){
 	
@@ -20,8 +26,22 @@ if(mouseHeld != Building.none){
 		Facing = Facing * -1;
 	}
 	
+	
 	#region switch held item
 	switch (mouseHeld){
+		case Building.none:
+			heldSprite		= -1;
+			heldObj			= -1;
+			entityColRange	= 0;
+			colRangeSprite	= -1;
+			//build cost
+			foodCost		= 0;
+			lumberCost		= 0;
+			stoneCost		= 0;
+			//housing
+			Housing			= 0;
+			//gening
+			genStrength		= 0;
 		case Building.human:
 			heldSprite		= SprCharacter;
 			heldObj			= ObjCharacter;
@@ -38,6 +58,10 @@ if(mouseHeld != Building.none){
 			happyCost		= -5;
 			lumberCost		= 1;
 			stoneCost		= 1;
+			//housing
+			Housing			= 3;
+			//gening
+			genStrength		= 0;
 			break;
 		case Building.hut:
 			heldSprite		= SprHut
@@ -45,9 +69,13 @@ if(mouseHeld != Building.none){
 			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= SprAreaCol32;
 			//build cost
-			foodCost		= 2;
-			lumberCost		= 3;
-			stoneCost		= 1;
+			foodCost		= 10;
+			lumberCost		= 2;
+			stoneCost		= 2;
+			//housing
+			Housing			= 1;
+			//gening
+			genStrength		= 0;
 			break;
 		case Building.gatheringhut:
 			heldSprite		= SprGatheringHut;
@@ -55,9 +83,13 @@ if(mouseHeld != Building.none){
 			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= SprAreaCol32;
 			//build cost
-			lumberCost		= 2;
-			stoneCost		= 2;
+			lumberCost		= 3;
+			stoneCost		= 3;
 			happyCost		= 1;
+			//housing
+			Housing			= 0;
+			//gening
+			genStrength		= .5;
 			break;
 		case Building.choppinghut:
 			heldSprite		= SprChoppingHut;
@@ -65,9 +97,13 @@ if(mouseHeld != Building.none){
 			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= SprAreaCol32;
 			//build cost
-			lumberCost		= 2;
+			lumberCost		= 4;
 			stoneCost		= 3;
 			happyCost		= 1;
+			//housing
+			Housing			= 0;
+			//gening
+			genStrength		= .5;
 			break;
 		case Building.pickinghut:
 			heldSprite		= SprPickingHut;
@@ -75,9 +111,13 @@ if(mouseHeld != Building.none){
 			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= SprAreaCol32;
 			//build cost
-			lumberCost		= 2;
-			stoneCost		= 3;
+			lumberCost		= 3;
+			stoneCost		= 4;
 			happyCost		= 1;
+			//housing
+			Housing			= 0;
+			//gening
+			genStrength		= .5;
 			break;
 		case Building.studyhut:
 			heldSprite		= SprStudy;
@@ -89,18 +129,23 @@ if(mouseHeld != Building.none){
 			lumberCost		= 3;
 			stoneCost		= 3;
 			happyCost		= -2;
+			//housing
+			Housing			= 0;
+			//gening
+			genStrength		= 0;
 			break;
 		case Building.upgrade:
 			heldSprite		= SprMouseUpgrade;
-			heldObj			= 0;
+			heldObj			= -1;
 			entityColRange	= 0;
 			colRangeSprite	= 0;
 			//build cost
+			
 			break;
 		case Building.destroy:
 			heldSprite		= SprMouseDestroy;
-			heldObj			= 0;
-			entityColRange	= 0;
+			heldObj			= -1;
+			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= 0;
 			//build cost
 			break;
@@ -112,36 +157,54 @@ if(mouseHeld != Building.none){
 
 		var nearest = instance_nearest(mouse_x,mouse_y,ObjEntity);
 		if(instance_exists(nearest)){
-			entitiyCol	= point_in_circle(nearest.x,nearest.y,mouse_x,mouse_y,entityColRange);
+			entityCol	= point_in_circle(nearest.x,nearest.y,mouse_x,mouse_y,entityColRange);
 		}
-		buildArea	= point_in_rectangle(mouse_x,mouse_y,Border,Border,Width-Border,Height-Border-64);
-		#region place held item
+		buildArea	= point_in_rectangle(mouse_x,mouse_y,0,ObjKindomManager.YOffset*(1+global.startingOffset*2),
+														Width,Height-ObjButtonManager.YOffset*(1+global.startingOffset));
+		#region place held object
 
-			if(global.m1 || heldObj == 0){heldAlpha = 1}else heldAlpha = .5;
-			if(global.m1Release && heldObj != 0 && entitiyCol == false && buildArea == true){
+		//determine actual Cost
+		Cost			= ceil((costIncrease * (instance_number(heldObj)+1)-1));
+		foodCost		= foodCost * Cost;
+		//happyCost		= 0;
+		wealthCost		= wealthCost * Cost;
+		lumberCost		= lumberCost * Cost;
+		stoneCost		= stoneCost * Cost;	
+		researchCost	= researchCost * Cost;
+		
+		canBuild = -1;
+		if(global.m1 || heldObj == -1){heldAlpha = 1}else heldAlpha = .5;
+		if(heldObj != -1 && entityCol == false && buildArea == true){
 				
-				with(ObjKindomManager){
-					if(Food >= other.foodCost && Lumber >= other.lumberCost && Stone >= other.stoneCost
-					&& Wealth >= other.wealthCost && Happy >= other.happyCost && Research >= other.researchCost){
-						other.canBuild = 1;
-					}else other.canBuild = 0;
-					if(other.canBuild == 1){
-					Food		-= other.foodCost;
-					Lumber		-= other.lumberCost;
-					Stone		-= other.stoneCost;
-					Wealth		-= other.wealthCost;
-					Happy		-= other.happyCost;
-					Research	-= other.researchCost;
-					}
-				}
-				if(canBuild == 1){
-					var _build = instance_create_layer(heldX,heldY+heldYOffset,"Instances",heldObj);
-					with(_build){
-						Facing = other.Facing;
-					}
-					mouseHeld = Building.none;
+				
+				
+			with(ObjKindomManager){
+				if(Food >= other.foodCost && Lumber >= other.lumberCost && Stone >= other.stoneCost
+				&& Wealth >= other.wealthCost && Happy >= other.happyCost && Research >= other.researchCost){
+					other.canBuild = 1;
+				}else other.canBuild = 0;
+				if(global.m1Release && other.canBuild == 1){
+				Food		-= other.foodCost;
+				Lumber		-= other.lumberCost;
+				Stone		-= other.stoneCost;
+				Wealth		-= other.wealthCost;
+				Happy		-= other.happyCost;
+				Research	-= other.researchCost;
 				}
 			}
+			if(global.m1Release && canBuild == 1){
+				var _build = instance_create_layer(heldX,heldY+heldYOffset,"Instances",heldObj);
+				with(_build){
+					Sprite = other.heldSprite;
+					Facing = other.Facing;
+					buildingType = other.mouseHeld;
+					Housing = other.Housing;
+					genStrength = other.genStrength;
+						
+				}
+				mouseHeld = Building.none;
+			}
+		}
 		
 		
 		#endregion
@@ -155,22 +218,26 @@ if(mouseHeld != Building.none){
 		#region destroy item
 		if(mouseHeld == Building.destroy){
 			nearest = instance_nearest(mouse_x,mouse_y,ObjResources);
-			with(nearest){
-			Colour = c_blue;
-			}
-			if(global.m1Release && buildArea && instance_exists(ObjResources)){//add range here
-				if(nearest.object_index == ObjOakTrees){
-					ObjKindomManager.Lumber++;
+			if(instance_exists(nearest)){
+				if(point_distance(mouse_x, mouse_y, nearest.x, nearest.y) < entityColRange){
+					with(nearest){
+					Colour = c_red;
+					}
+					if(global.m1Release && buildArea && instance_exists(ObjResources)){//add range here
+						if(nearest.object_index == ObjTrees){
+							ObjKindomManager.Lumber++;
+						}
+						if(nearest.object_index == ObjRocks){
+							ObjKindomManager.Stone++;
+						}
+						if(nearest.object_index == ObjBerryBush){
+							ObjKindomManager.Food++;
+						}
+						with(nearest){
+							instance_destroy();
+						}	
+					}
 				}
-				if(nearest.object_index == ObjRocks){
-					ObjKindomManager.Stone++;
-				}
-				if(nearest.object_index == ObjBerryBush){
-					ObjKindomManager.Food++;
-				}
-				with(nearest){
-					instance_destroy();
-				}	
 			}
 		}
 		#endregion

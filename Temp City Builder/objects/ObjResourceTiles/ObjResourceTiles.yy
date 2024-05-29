@@ -29,7 +29,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "SprResourceTiles",
+    "path": "sprites/SprResourceTiles/SprResourceTiles.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

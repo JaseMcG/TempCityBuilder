@@ -16,8 +16,13 @@ colRangeSprite	= 0;
 
 Width			= 2 * global.GameSize * ObjGame.screenSizeX;
 Height			= 2 * global.GameSize * ObjGame.screenSizeY;
-Border			= 16 *  global.GameSize;
+XOffset			= (8) * global.GameSize;
+YOffset			= (8) * global.GameSize;
+Border			= 8 *  global.GameSize;
+bottomBorder	= Border + (18 *  global.GameSize);
 
 canBuild		= 0;
+costIncrease	= 2;
+Cost			= 0;
 
 mouseHeld		= Building.none;

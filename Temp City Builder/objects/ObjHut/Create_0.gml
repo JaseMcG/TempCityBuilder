@@ -6,8 +6,3 @@
 
 // Inherit the parent event
 event_inherited();
-
-Sprite			= SprHut;
-Frame			= 0;
-buildingType	= Building.hut;
-Housing			= 1;

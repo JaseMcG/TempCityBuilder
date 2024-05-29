@@ -15,8 +15,4 @@
 // Inherit the parent event
 event_inherited();
 
-Sprite			= SprChoppingHut;
-Frame			= 0;
-buildingType	= Building.choppinghut;
 
-genStrength	= 1;

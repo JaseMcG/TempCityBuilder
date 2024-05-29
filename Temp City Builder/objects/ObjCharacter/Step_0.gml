@@ -29,8 +29,16 @@ if(State == CharState.wander){
 	//y = y + (choose(-1,0,1) * global.GameSpeed);
 }
 
-
-
-
+/// testing stuff
+if(instance_exists(workHut) && instance_exists(Home)){
+	if(workHut != 0 && global.GameTime == Time.day){
+		x = workHut.x;
+		y = workHut.y + 4;
+	}
+	if(global.GameTime == Time.night){
+		x = Home.x;
+		y = Home.y + 4;
+	}
+}
 
 

@@ -1,23 +1,18 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+	
+	var offsetadgjustx = startingOffsetX;
+	var offsetadgjusty = startingOffsetY; 
+	offsetadgjustx += 1;
+	offsetadgjusty += 1;
+	
 if(gameStart == false && global.GamePaused == -1){
 	
-	//xBuffer			= 8 * global.GameSize;
-	//yBuffer			= 8 * global.GameSize;
-	//Width	= 2 * global.GameSize * ObjGame.screenSizeX;
-	//Height	= 2 * global.GameSize * ObjGame.screenSizeY;
-	/*
-	
-	240,135
-	
-	*/
-	
-
 	//Map Type
 	#region Map Type
-	mapCoastal	= point_in_rectangle(mouse_x,mouse_y,16*global.GameSize+xBuffer,32*global.GameSize+yBuffer,
-													24*global.GameSize+xBuffer,40*global.GameSize+yBuffer);
+	/*
+	mapCoastal	= point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(mapCoastal == true){
 		frameMapCoastal = 1
 		if(global.m1){
@@ -29,9 +24,9 @@ if(gameStart == false && global.GamePaused == -1){
 		}
 	}else frameMapCoastal = 0;
 	if(gameMapType = 1){frameMapCoastal = 3};
-	
-	mapPlains	= point_in_rectangle(mouse_x,mouse_y,32*global.GameSize+xBuffer,32*global.GameSize+yBuffer,
-													40*global.GameSize+xBuffer,40*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	mapPlains	= point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(mapPlains == true){
 		frameMapPlains = 1
 		if(global.m1){
@@ -43,9 +38,9 @@ if(gameStart == false && global.GamePaused == -1){
 		}
 	}else frameMapPlains = 0;
 	if(gameMapType = 2){frameMapPlains = 3};
-	
-	mapHills	= point_in_rectangle(mouse_x,mouse_y,48*global.GameSize+xBuffer,32*global.GameSize+yBuffer,
-													56*global.GameSize+xBuffer,40*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	mapHills	= point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(mapHills == true){
 		frameMapHills = 1
 		if(global.m1){
@@ -57,9 +52,9 @@ if(gameStart == false && global.GamePaused == -1){
 		}
 	}else frameMapHills = 0;
 	if(gameMapType = 3){frameMapHills = 3};
-	
-	mapVaried	= point_in_rectangle(mouse_x,mouse_y,64*global.GameSize+xBuffer,32*global.GameSize+yBuffer,
-													72*global.GameSize+xBuffer,40*global.GameSize+yBuffer);		
+	offsetadgjustx += 1;
+	mapVaried	= point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);		
 	if(mapVaried == true){
 		frameMapVaried = 1
 		if(global.m1){
@@ -71,44 +66,64 @@ if(gameStart == false && global.GamePaused == -1){
 		}
 	}else frameMapVaried = 0;
 	if(gameMapType = 4){frameMapVaried = 3};
-	
+	*/
 	#endregion
+	
+
+	offsetadgjustx = startingOffsetX;
+	
 	
 	//Map Biome
 	#region Map Biome
-	biomeMeadow	= point_in_rectangle(mouse_x,mouse_y,16*global.GameSize+xBuffer,48*global.GameSize+yBuffer,
-													24*global.GameSize+xBuffer,56*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	offsetadgjusty += 1;
+	biomeMeadow	= point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(biomeMeadow == true){
 		frameBiomeMeadow = 1
 		if(global.m1){
 			frameBiomeMeadow = 2;
 		}
 		if(global.m1Release){
-			gameMapBiome = 1;
-			global.biomeSprite = SprMeadowTiles;
+			gameMapBiome = Biome.meadow;
+			
 		}
 	}else frameBiomeMeadow = 0;
 	if(gameMapBiome = 1){frameBiomeMeadow = 3};
-													
-	biomeTundra	= point_in_rectangle(mouse_x,mouse_y,32*global.GameSize+xBuffer,48*global.GameSize+yBuffer,
-													40*global.GameSize+xBuffer,56*global.GameSize+yBuffer);
+	offsetadgjustx += 1;						
+	biomeTundra	= point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(biomeTundra == true){
 		frameBiomeTundra = 1
 		if(global.m1){
 			frameBiomeTundra = 2;
 		}
 		if(global.m1Release){
-			gameMapBiome = 2;
-			global.biomeSprite = SprTundraTiles;
+			gameMapBiome = Biome.tundra;
 		}
 	}else frameBiomeTundra = 0;
 	if(gameMapBiome = 2){frameBiomeTundra = 3};
+	
+	//set properties
+	if(gameMapBiome == Biome.meadow){
+		global.biomeSprite = SprMeadowTiles;
+		global.waterSprite = SprMeadowWaterTiles;
+		bgSprite		= SprBGMeadow;
+		bgStuffSprite	= SprBGMeadowStuff;
+	}	
+	if(gameMapBiome == Biome.tundra){
+		global.biomeSprite = SprTundraTiles;
+		global.waterSprite = SprTundraWaterTiles;
+		bgSprite		= SprBGTundra
+		bgStuffSprite	= SprBGMeadowStuff;
+	}
 	
 	#endregion
 	
 	//Start Button
 	#region Start Button
-	
+	offsetadgjustx += 1;
+	offsetadgjusty += 1;
 	startButton = point_in_rectangle(mouse_x,mouse_y,Width - (startXBuffer*global.GameSize), Height - (startYBuffer*global.GameSize),
 													 Width - ((startXBuffer-32)*global.GameSize), Height - ((startYBuffer-16)*global.GameSize));
 	if(startButton == true){
@@ -117,13 +132,13 @@ if(gameStart == false && global.GamePaused == -1){
 			frameStartButton = 2;
 		}
 		if(global.m1Release){
-			if(gameScreenSize != 0 && gameMapBiome != 0 && gameMapType != 0){
+			if(gameScreenSize != 0 && gameMapBiome != 0 ){ //&& gameMapType != 0
 				gameStart = true;
 			}
 		}
 	}else frameStartButton = 0;
 	
-	if((gameScreenSize != 0 && gameMapBiome != 0 && gameMapType != 0)){
+	if((gameScreenSize != 0 && gameMapBiome != 0 )){ //&& gameMapType != 0
 		startAlpha = 1;
 	}else startAlpha = .5;
 	
@@ -148,11 +163,16 @@ if(gameStart == false && global.GamePaused == -1){
 
 if(global.GamePaused == 1){
 	
+	offsetadgjustx = startingOffsetX;
+	offsetadgjusty = startingOffsetY; 
+	offsetadgjustx += 1;
+	offsetadgjusty += 1;
 	
 	global.GameSpeed = 0;
 	
-	xButton	 = point_in_rectangle(mouse_x,mouse_y,Width-(28*global.GameSize),16*global.GameSize,
-												Width-(16*global.GameSize),28*global.GameSize);
+	// X button
+	xButton	 = point_in_rectangle(mouse_x,mouse_y,Width-(8*global.GameSize)-(buttonSize*2),8*global.GameSize,
+												Width-(8*global.GameSize),(8*global.GameSize)+(buttonSize*2));
 	if(xButton == true){
 		frameXButton = 1
 		if(global.m1){
@@ -165,8 +185,8 @@ if(global.GamePaused == 1){
 	
 		//Game Size
 	#region Game Size
-	sizeTiny	 = point_in_rectangle(mouse_x,mouse_y,16*global.GameSize+xBuffer,16*global.GameSize+yBuffer,
-													24*global.GameSize+xBuffer,24*global.GameSize+yBuffer);
+	sizeTiny	 = point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(sizeTiny == true){
 		frameSizeTiny = 1
 		if(global.m1){
@@ -179,8 +199,9 @@ if(global.GamePaused == 1){
 		}
 	}else frameSizeTiny = 0;
 	if(gameScreenSize = 1){frameSizeTiny = 3};
-	sizeSmall	 = point_in_rectangle(mouse_x,mouse_y,32*global.GameSize+xBuffer,16*global.GameSize+yBuffer,
-													40*global.GameSize+xBuffer,24*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	sizeSmall	 = point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(sizeSmall == true){
 		frameSizeSmall = 1
 		if(global.m1){
@@ -193,8 +214,9 @@ if(global.GamePaused == 1){
 		}
 	}else frameSizeSmall = 0;
 	if(gameScreenSize = 2){frameSizeSmall = 3};
-	sizeMedium	 = point_in_rectangle(mouse_x,mouse_y,48*global.GameSize+xBuffer,16*global.GameSize+yBuffer,
-													56*global.GameSize+xBuffer,24*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	sizeMedium	 = point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(sizeMedium == true){
 		frameSizeMedium = 1
 		if(global.m1){
@@ -207,8 +229,9 @@ if(global.GamePaused == 1){
 		}
 	}else frameSizeMedium = 0;
 	if(gameScreenSize = 3){frameSizeMedium = 3};
-	sizeBig		 = point_in_rectangle(mouse_x,mouse_y,64*global.GameSize+xBuffer,16*global.GameSize+yBuffer,
-													72*global.GameSize+xBuffer,24*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	sizeBig		 = point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(sizeBig == true){
 		frameSizeBig = 1
 		if(global.m1){
@@ -221,8 +244,9 @@ if(global.GamePaused == 1){
 		}
 	}else frameSizeBig = 0;
 	if(gameScreenSize = 4){frameSizeBig = 3};
-	sizeLarge	 = point_in_rectangle(mouse_x,mouse_y,80*global.GameSize+xBuffer,16*global.GameSize+yBuffer,
-													88*global.GameSize+xBuffer,24*global.GameSize+yBuffer);
+	offsetadgjustx += 1;
+	sizeLarge	 = point_in_rectangle(mouse_x,mouse_y,XOffset*offsetadgjustx,YOffset*offsetadgjusty,
+													XOffset*offsetadgjustx + buttonSize,YOffset*offsetadgjusty + buttonSize);
 	if(sizeLarge == true){
 		frameSizeLarge = 1
 		if(global.m1){
