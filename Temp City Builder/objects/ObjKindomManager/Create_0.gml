@@ -14,13 +14,15 @@ allButtons		= 0;
 maxResources	= 999;
 
 //Starting Resources
-startFood		= 0;
-startWealth		= 0;
+startFood		= 999;//basic resources
+startHousing	= 0;
+startWealth		= 999;
 startHappy		= 0;//1 to 10, 1 = unhappy, 10 = happy
-startResearch	= 0;
+startResearch	= 999;
 
-startlumber		= 0;
-startStone		= 0;
+startlumber		= 999;//simple resources
+startStone		= 999;
+
 startCopper		= 0;
 startTin		= 0;
 startBronze		= 0;
@@ -29,6 +31,7 @@ startIron		= 0;
 
 //Resources
 Food			= startFood;
+Housing			= startHousing;
 Wealth			= startWealth;
 Happy			= startHappy;
 Research		= startResearch;

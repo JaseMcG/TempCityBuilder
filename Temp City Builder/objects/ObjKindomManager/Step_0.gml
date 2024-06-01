@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//generate buttons
+#region generate buttons
+
 if(allButtons == 0){
 	if(!instance_exists(ObjTownStart)){
 		//instance_create_layer(floor(Width/2),floor(Height/2),"Instances",ObjTownStart);
@@ -33,6 +34,23 @@ if(allButtons == 0){
 		}
 	}
 }
+#endregion
+
+#region special resources
+
+// Happiness
+
+//Housing
+Housing = 0;
+if(instance_exists(ObjBuilding)){
+	for(var i = 0; i < ds_list_size(global.BuildingList); i++;){
+		if(global.BuildingList[| i].Housing != 0){
+			other.Housing += global.BuildingList[| i].Housing;
+		}
+	}
+}
+
+#endregion
 
 if(keyboard_check_pressed(vk_add) && ObjGame.debugToggle == 1){
 	Food += 50;
@@ -41,6 +59,7 @@ if(keyboard_check_pressed(vk_add) && ObjGame.debugToggle == 1){
 //clamp resources
 
 Food			= clamp(Food,0,maxResources);
+Housing			= clamp(Housing,0,maxResources);
 Wealth			= clamp(Wealth,0,maxResources);
 Happy			= clamp(Happy,0,10);
 Research		= clamp(Research,0,maxResources);

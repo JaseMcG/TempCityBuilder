@@ -27,6 +27,19 @@ if(Food){
 	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Food),1,1,0);
 	offsetadgjustx += offinc;
 }
+//draw food
+if(Housing){
+	var offinc = 0;
+	if(Housing >= 10){offinc = inc1;}
+	if(Housing >= 100){offinc = inc2;}
+	if(Housing >= 1000){offinc = inc3;}
+	if(Housing >= 10000){offinc = inc4;}
+	offsetadgjustx += 1;
+	draw_sprite_ext(SprIconHousing,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
+	offsetadgjustx += 2 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Housing),1,1,0);
+	offsetadgjustx += offinc;
+}
 //draw gold
 if(Wealth){
 	var offinc = 0;

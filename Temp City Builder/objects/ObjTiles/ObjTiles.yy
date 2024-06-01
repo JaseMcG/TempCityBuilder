@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "SprMeadowTiles",
-    "path": "sprites/SprMeadowTiles/SprMeadowTiles.yy",
+    "name": "SprTileCollisionsBox",
+    "path": "sprites/SprTileCollisionsBox/SprTileCollisionsBox.yy",
   },
   "spriteMaskId": null,
   "visible": true,

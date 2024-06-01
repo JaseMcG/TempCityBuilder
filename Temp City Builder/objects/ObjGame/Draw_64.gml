@@ -12,14 +12,20 @@ draw_set_color(c_white);
 
 draw_set_font(FonPixel);
 var d = 32;
+var a = 1;
 draw_set_color(c_fuchsia);
 //draw_text(x,y+d*0,"debug on:" + string(debugToggle));
 if(debugToggle == 1){
 	
 	
-	draw_text(x+d,y+d*1,"seed: " + string(random_get_seed()));
-	draw_text(x+d,y+d*2,"humans: " + string(ds_list_size(global.HumanList)));
-	draw_text(x+d,y+d*3,"Day: " + string(Day));
+	draw_text(x+d,y+d*a,"seed: " + string(random_get_seed()));
+	a += 1;
+	draw_text(x+d,y+d*a,"humans: " + string(ds_list_size(global.HumanList)));
+	a += 1;
+	draw_text(x+d,y+d*a,"building: " + string(ds_list_size(global.BuildingList)));
+	a += 1;
+	draw_text(x+d,y+d*a,"Day: " + string(Day));
+	a += 1;
 
 	
 	if(instance_exists(ObjGenerator)){
@@ -33,6 +39,12 @@ if(debugToggle == 1){
 	}
 	if(instance_exists(ObjButtonManager)){
 ;
+	}
+	if(instance_exists(ObjCharacter)){
+		//draw_text(x+d,y+d*5,"x" + string(ObjCharacter.x));
+		//draw_text(x+d,y+d*6,"y" + string(ObjCharacter.y));
+		//draw_text(x+d,y+d*7,"to x" + string(ObjCharacter.xTo));
+		//draw_text(x+d,y+d*8,"to y" + string(ObjCharacter.yTo));
 	}
 }
 

@@ -12,6 +12,7 @@ global.GameSize			= 4;
 global.GamePaused		= -1;
 global.startingOffset	= .5; // either .5,
 global.HumanList		= ds_list_create();
+global.BuildingList		= ds_list_create();
 
 //time vars
 enum Time{

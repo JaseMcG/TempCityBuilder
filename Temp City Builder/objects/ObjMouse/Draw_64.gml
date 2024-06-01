@@ -72,9 +72,9 @@ if(mouseHeld != Building.none){
 #endregion
 
 if(mouseHeld  != Building.none && global.GamePaused == -1){
-	if(colRangeSprite != 0 && entityCol || !buildArea || canBuild == 0){heldColour = c_red;}else heldColour = c_white;
+	if(colRangeSprite != 0 && canBuild != 1){heldColour = c_red;}else heldColour = c_white;
 	if(colRangeSprite != 0){
-		draw_sprite_ext(colRangeSprite,0,heldX,heldY,
+		draw_sprite_ext(colRangeSprite,0,heldX,heldY+heldYOffset,
 						global.GameSize,global.GameSize,0,heldColour,.5);
 	}
 	//if(heldObj != 0){
@@ -88,7 +88,7 @@ if(mouseHeld  != Building.none && global.GamePaused == -1){
 	
 	if(ObjGame.debugToggle == true){
 		if(entityCol){draw_set_color(c_yellow)}else draw_set_color(c_white);
-		draw_circle(mouse_x,mouse_y,entityColRange,1);
+		draw_circle(heldX,heldY+heldYOffset,entityColRange,1);
 		draw_set_color(c_white);
 		draw_rectangle(0,ObjKindomManager.YOffset*(1+global.startingOffset*2),
 					Width,Height-ObjButtonManager.YOffset*(1+global.startingOffset),1);

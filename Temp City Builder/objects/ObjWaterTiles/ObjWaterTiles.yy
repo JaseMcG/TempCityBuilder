@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "SprMeadowWaterTiles",
-    "path": "sprites/SprMeadowWaterTiles/SprMeadowWaterTiles.yy",
+    "name": "SprTileCollisionsBox",
+    "path": "sprites/SprTileCollisionsBox/SprTileCollisionsBox.yy",
   },
   "spriteMaskId": null,
   "visible": true,

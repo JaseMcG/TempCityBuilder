@@ -4,6 +4,7 @@
 Sprite		= 0;
 Frame		= 0;
 Facing		= 1;
+Colour		= c_white;
 buildingType	= Building.none;
 
 maxHp		= 10;

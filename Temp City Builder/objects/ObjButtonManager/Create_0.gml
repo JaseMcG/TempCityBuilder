@@ -57,3 +57,6 @@ upgradeFrame		= 0;
 destroyButton		= 0;
 destroySprite		= SprButtonDestroy;
 destroyFrame		= 0;
+
+
+//vars for time buttons

@@ -55,7 +55,7 @@ if(mouseHeld != Building.none){
 			colRangeSprite	= SprAreaCol64;
 			//build cost
 			foodCost		= 1;
-			happyCost		= -5;
+			//happyCost		= -5;
 			lumberCost		= 1;
 			stoneCost		= 1;
 			//housing
@@ -85,7 +85,7 @@ if(mouseHeld != Building.none){
 			//build cost
 			lumberCost		= 3;
 			stoneCost		= 3;
-			happyCost		= 1;
+			//happyCost		= 1;
 			//housing
 			Housing			= 0;
 			//gening
@@ -99,7 +99,7 @@ if(mouseHeld != Building.none){
 			//build cost
 			lumberCost		= 4;
 			stoneCost		= 3;
-			happyCost		= 1;
+			//happyCost		= 1;
 			//housing
 			Housing			= 0;
 			//gening
@@ -113,7 +113,7 @@ if(mouseHeld != Building.none){
 			//build cost
 			lumberCost		= 3;
 			stoneCost		= 4;
-			happyCost		= 1;
+			//happyCost		= 1;
 			//housing
 			Housing			= 0;
 			//gening
@@ -128,7 +128,7 @@ if(mouseHeld != Building.none){
 			foodCost		= 2
 			lumberCost		= 3;
 			stoneCost		= 3;
-			happyCost		= -2;
+			//happyCost		= -2;
 			//housing
 			Housing			= 0;
 			//gening
@@ -155,12 +155,13 @@ if(mouseHeld != Building.none){
 	
 	if(global.GamePaused == -1){
 
-		var nearest = instance_nearest(mouse_x,mouse_y,ObjEntity);
+		var nearest = instance_nearest(heldX,heldY+heldYOffset,ObjEntity);
 		if(instance_exists(nearest)){
-			entityCol	= point_in_circle(nearest.x,nearest.y,mouse_x,mouse_y,entityColRange);
+			entityCol	= point_in_circle(nearest.x,nearest.y,heldX,heldY+heldYOffset,entityColRange);
 		}
 		buildArea	= point_in_rectangle(mouse_x,mouse_y,0,ObjKindomManager.YOffset*(1+global.startingOffset*2),
 														Width,Height-ObjButtonManager.YOffset*(1+global.startingOffset));
+		var water = position_meeting(heldX,heldY+heldYOffset,ObjWaterTiles);
 		#region place held object
 
 		//determine actual Cost
@@ -174,7 +175,7 @@ if(mouseHeld != Building.none){
 		
 		canBuild = -1;
 		if(global.m1 || heldObj == -1){heldAlpha = 1}else heldAlpha = .5;
-		if(heldObj != -1 && entityCol == false && buildArea == true){
+		if(heldObj != -1 && entityCol == false && buildArea == true && water == false ){
 				
 				
 				
@@ -183,6 +184,7 @@ if(mouseHeld != Building.none){
 				&& Wealth >= other.wealthCost && Happy >= other.happyCost && Research >= other.researchCost){
 					other.canBuild = 1;
 				}else other.canBuild = 0;
+				
 				if(global.m1Release && other.canBuild == 1){
 				Food		-= other.foodCost;
 				Lumber		-= other.lumberCost;
@@ -195,6 +197,7 @@ if(mouseHeld != Building.none){
 			if(global.m1Release && canBuild == 1){
 				var _build = instance_create_layer(heldX,heldY+heldYOffset,"Instances",heldObj);
 				with(_build){
+					ds_list_add(global.BuildingList, self.id);
 					Sprite = other.heldSprite;
 					Facing = other.Facing;
 					buildingType = other.mouseHeld;
@@ -217,13 +220,24 @@ if(mouseHeld != Building.none){
 		
 		#region destroy item
 		if(mouseHeld == Building.destroy){
-			nearest = instance_nearest(mouse_x,mouse_y,ObjResources);
+			nearest = instance_nearest(heldX,heldY+heldYOffset,ObjEntity);
 			if(instance_exists(nearest)){
-				if(point_distance(mouse_x, mouse_y, nearest.x, nearest.y) < entityColRange){
+				if(point_distance(heldX,heldY+heldYOffset, nearest.x, nearest.y) < entityColRange){
 					with(nearest){
 					Colour = c_red;
 					}
-					if(global.m1Release && buildArea && instance_exists(ObjResources)){//add range here
+					if(global.m1Release && buildArea && instance_exists(ObjResources)){
+						if(nearest.object_index == ObjCharacter){
+							//var i = ds_list_find_index(global.HumanList,nearest.id);
+							ds_list_delete(global.HumanList, ds_list_find_index(global.HumanList,nearest.id));
+							if(instance_exists(nearest.Home)){
+								nearest.Home.Residents--;
+							}
+						}
+						if(object_get_parent(nearest.object_index) == ObjBuilding){ 
+							//var i = ds_list_find_index(global.BuildingList,nearest.id);
+							ds_list_delete(global.BuildingList, ds_list_find_index(global.BuildingList,nearest.id));
+						}
 						if(nearest.object_index == ObjTrees){
 							ObjKindomManager.Lumber++;
 						}

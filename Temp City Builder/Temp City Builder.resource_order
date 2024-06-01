@@ -32,6 +32,7 @@
   "ResourceOrderSettings": [
     {"name":"SprIconStone","order":4,"path":"sprites/SprIconStone/SprIconStone.yy",},
     {"name":"SprMeadowWaterTiles","order":3,"path":"sprites/SprMeadowWaterTiles/SprMeadowWaterTiles.yy",},
+    {"name":"SprTileCollisionsBox","order":5,"path":"sprites/SprTileCollisionsBox/SprTileCollisionsBox.yy",},
     {"name":"ObjPickingHut","order":6,"path":"objects/ObjPickingHut/ObjPickingHut.yy",},
     {"name":"SprSolid","order":1,"path":"sprites/SprSolid/SprSolid.yy",},
     {"name":"ObjTrees","order":1,"path":"objects/ObjTrees/ObjTrees.yy",},
@@ -86,6 +87,7 @@
     {"name":"SprTundraTiles","order":1,"path":"sprites/SprTundraTiles/SprTundraTiles.yy",},
     {"name":"ObjMouse","order":5,"path":"objects/ObjMouse/ObjMouse.yy",},
     {"name":"ObjHut","order":1,"path":"objects/ObjHut/ObjHut.yy",},
+    {"name":"SprIconHousing","order":6,"path":"sprites/SprIconHousing/SprIconHousing.yy",},
     {"name":"SprBGTundra","order":27,"path":"sprites/SprBGTundra/SprBGTundra.yy",},
     {"name":"ObjBuilding","order":4,"path":"objects/ObjBuilding/ObjBuilding.yy",},
     {"name":"ObjChoppingHut","order":2,"path":"objects/ObjChoppingHut/ObjChoppingHut.yy",},

@@ -3,7 +3,8 @@
 depth = -y;
 
 
-draw_sprite_ext(Sprite,Frame,x,y,global.GameSize*Facing,global.GameSize,0,c_white,1);
+draw_sprite_ext(Sprite,Frame,x,y,global.GameSize*Facing,global.GameSize,0,Colour,1);
+Colour		= c_white;
 
 /// @description Insert description here
 // You can write your code in this editor
@@ -39,17 +40,18 @@ if(Residents != Housing && Built == 1){
 }
 
 //draw generating meter
-if(genStrength != 0 && Built == 1 && Worker != 0 && global.GameTime == Time.day){
-	var _gentimer = MapValue(global.genTimer,0,global.genTime,-meterSize,meterSize);
-	draw_set_color(c_black);
-	draw_rectangle(x-meterSize*global.GameSize,y-meterHeight*global.GameSize,
-					x+meterSize*global.GameSize,y-(meterHeight-meterWidth)*global.GameSize-1,0);
-	draw_set_color(c_aqua);
-	draw_rectangle(x-meterSize*global.GameSize,y-meterHeight*global.GameSize,
-					x+_gentimer*global.GameSize,y-(meterHeight-meterWidth)*global.GameSize-1,0);
-	draw_set_color(c_white);
+if(instance_exists(Worker) && Worker != 0){
+	if(genStrength != 0 && Built == 1 && Worker.atWork){
+		var _gentimer = MapValue(global.genTimer,0,global.genTime,-meterSize,meterSize);
+		draw_set_color(c_black);
+		draw_rectangle(x-meterSize*global.GameSize,y-meterHeight*global.GameSize,
+						x+meterSize*global.GameSize,y-(meterHeight-meterWidth)*global.GameSize-1,0);
+		draw_set_color(c_aqua);
+		draw_rectangle(x-meterSize*global.GameSize,y-meterHeight*global.GameSize,
+						x+_gentimer*global.GameSize,y-(meterHeight-meterWidth)*global.GameSize-1,0);
+		draw_set_color(c_white);
+	}
 }
-
 if(ObjGame.debugToggle == 1){
 	draw_text(x,y,string(Residents)+"/"+string(Housing));
 	if(genStrength != 0){

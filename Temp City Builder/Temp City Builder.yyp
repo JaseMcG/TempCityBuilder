@@ -50,6 +50,7 @@
   "resources": [
     {"id":{"name":"SprIconStone","path":"sprites/SprIconStone/SprIconStone.yy",},},
     {"id":{"name":"SprMeadowWaterTiles","path":"sprites/SprMeadowWaterTiles/SprMeadowWaterTiles.yy",},},
+    {"id":{"name":"SprTileCollisionsBox","path":"sprites/SprTileCollisionsBox/SprTileCollisionsBox.yy",},},
     {"id":{"name":"ObjPickingHut","path":"objects/ObjPickingHut/ObjPickingHut.yy",},},
     {"id":{"name":"SprSolid","path":"sprites/SprSolid/SprSolid.yy",},},
     {"id":{"name":"ObjTrees","path":"objects/ObjTrees/ObjTrees.yy",},},
@@ -117,6 +118,7 @@
     {"id":{"name":"ObjMouse","path":"objects/ObjMouse/ObjMouse.yy",},},
     {"id":{"name":"ObjButton","path":"objects/ObjButton/ObjButton.yy",},},
     {"id":{"name":"ObjHut","path":"objects/ObjHut/ObjHut.yy",},},
+    {"id":{"name":"SprIconHousing","path":"sprites/SprIconHousing/SprIconHousing.yy",},},
     {"id":{"name":"SprBGTundra","path":"sprites/SprBGTundra/SprBGTundra.yy",},},
     {"id":{"name":"ObjBuilding","path":"objects/ObjBuilding/ObjBuilding.yy",},},
     {"id":{"name":"ObjChoppingHut","path":"objects/ObjChoppingHut/ObjChoppingHut.yy",},},

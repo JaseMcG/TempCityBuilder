@@ -4,6 +4,9 @@
 
 
 
+if(ObjGame.debugToggle){
+	draw_sprite(SprMouseDebug,0,xOrbit,yOrbit);
+}
 
 
 
