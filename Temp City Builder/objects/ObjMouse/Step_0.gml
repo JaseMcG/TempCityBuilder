@@ -125,7 +125,7 @@ if(mouseHeld != Building.none){
 			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= SprAreaCol32;
 			//build cost
-			foodCost		= 2
+			foodCost		= 2;
 			lumberCost		= 3;
 			stoneCost		= 3;
 			//happyCost		= -2;
@@ -140,6 +140,9 @@ if(mouseHeld != Building.none){
 			entityColRange	= 0;
 			colRangeSprite	= 0;
 			//build cost
+			foodCost		= 0;
+			lumberCost		= 0;
+			stoneCost		= 0;
 			
 			break;
 		case Building.destroy:
@@ -148,6 +151,9 @@ if(mouseHeld != Building.none){
 			entityColRange	= 8*global.GameSize;
 			colRangeSprite	= 0;
 			//build cost
+			foodCost		= 0;
+			lumberCost		= 0;
+			stoneCost		= 0;
 			break;
 	}
 	#endregion
@@ -159,8 +165,8 @@ if(mouseHeld != Building.none){
 		if(instance_exists(nearest)){
 			entityCol	= point_in_circle(nearest.x,nearest.y,heldX,heldY+heldYOffset,entityColRange);
 		}
-		buildArea	= point_in_rectangle(mouse_x,mouse_y,0,ObjKindomManager.YOffset*(1+global.startingOffset*2),
-														Width,Height-ObjButtonManager.YOffset*(1+global.startingOffset));
+		buildArea	= point_in_rectangle(mouse_x,mouse_y,0,ObjKindomManager.YOffset*(3),
+														Width,Height-ObjButtonManager.YOffset*(1.5));
 		var water = position_meeting(heldX,heldY+heldYOffset,ObjWaterTiles);
 		#region place held object
 
@@ -224,7 +230,7 @@ if(mouseHeld != Building.none){
 			if(instance_exists(nearest)){
 				if(point_distance(heldX,heldY+heldYOffset, nearest.x, nearest.y) < entityColRange){
 					with(nearest){
-					Colour = c_red;
+						Colour = c_red;
 					}
 					if(global.m1Release && buildArea && instance_exists(ObjResources)){
 						if(nearest.object_index == ObjCharacter){

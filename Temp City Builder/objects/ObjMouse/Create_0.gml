@@ -16,8 +16,8 @@ colRangeSprite	= 0;
 
 Width			= 2 * global.GameSize * ObjGame.screenSizeX;
 Height			= 2 * global.GameSize * ObjGame.screenSizeY;
-XOffset			= (8) * global.GameSize;
-YOffset			= (8) * global.GameSize;
+XOffset			= (10) * global.GameSize;
+YOffset			= (10) * global.GameSize;
 Border			= 8 *  global.GameSize;
 bottomBorder	= Border + (18 *  global.GameSize);
 

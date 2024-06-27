@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "SprSmallBuildingHitBox",
   "bbox_bottom": 63,
-  "bbox_left": 48,
-  "bbox_right": 79,
-  "bbox_top": 48,
+  "bbox_left": 40,
+  "bbox_right": 87,
+  "bbox_top": 32,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"45df776b-af96-4026-9dc1-02563d268788",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1999a4e1-77ca-497f-87b0-e1ba8ed53067",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 128,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bb81eca4-d782-409c-811a-5ffb90cf6abf","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ff4f86bd-65dd-4ad0-9b1c-33bff916a5dc","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"45df776b-af96-4026-9dc1-02563d268788","path":"sprites/SprSmallBuildingHitBox/SprSmallBuildingHitBox.yy",},},},"Disabled":false,"id":"4a94b9a2-006f-48f4-a4d6-030755e80e03","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"1999a4e1-77ca-497f-87b0-e1ba8ed53067","path":"sprites/SprSmallBuildingHitBox/SprSmallBuildingHitBox.yy",},},},"Disabled":false,"id":"8c325924-dc00-464c-8f97-89d5a5f344f5","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

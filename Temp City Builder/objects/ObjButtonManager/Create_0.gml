@@ -3,14 +3,16 @@
 
 Width		= 8 * ObjGame.screenSizeX;
 Height		= 8 * ObjGame.screenSizeY;
-buttonSize	= 16 * global.GameSize;
-XOffset		= (16+2) * global.GameSize;
-YOffset		= (16 * global.GameSize);
+buttonSize	= 18 * global.GameSize;
+XOffset		= 18 * global.GameSize;
+YOffset		= 18 * global.GameSize;
 
 
-Button = 0;
-buttonMax = 6;
-buttonAmount = 0;
+Button			= 0;
+buttonMax		= 6;
+buttonAmount	= 0;
+mouseCollide	= 0;
+hotKey			= -1;
 
 //checks to unlock buttons
 characterCheck = 0;

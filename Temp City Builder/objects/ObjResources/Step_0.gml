@@ -3,7 +3,7 @@
 event_inherited();
 
 
-Colour		= c_white;
+
 
 
 

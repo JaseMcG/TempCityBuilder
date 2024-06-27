@@ -27,7 +27,8 @@ Worker		= 0;
 //genTimer	= 0;
 initialRec	= 0;
 genStrength	= 0;
-
+Entity		= 0;
+	
 //housing
 Housing			= 0;
 Residents		= 0;

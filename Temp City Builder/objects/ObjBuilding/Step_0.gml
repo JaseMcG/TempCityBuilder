@@ -88,19 +88,33 @@ if(Built == 1){
 			}
 		}
 		if(!instance_exists(Worker)){
-			Worker = 0;
+			Worker = 0; 
 		}
 		// generate
 		if(instance_exists(Worker) && Worker != 0){
+			
+			//set Entity
+			if(buildingType == Building.gatheringhut){
+				Entity = ObjBerryBush;
+			}
+			if(buildingType == Building.choppinghut){
+				Entity = ObjTrees;
+			}
+			if(buildingType == Building.pickinghut){
+				Entity = ObjRocks;
+			}
+			if(buildingType == Building.studyhut){
+				Entity = ObjHut;
+			}
+			
 			if(global.genTick && Worker.atWork == 1){//&& global.genTimer >= global.genTime -1){
 			
-			var list, obj, instcount;
+			var list, instcount;
 				//gathering
 				if(buildingType == Building.gatheringhut){
 				
-					obj = ObjBerryBush;
 					instcount = 0;
-					with(obj){
+					with(Entity){
 						if(collision_circle(x,y,other.Radius,other.id,0,0)){
 							instcount++;
 						}
@@ -113,9 +127,8 @@ if(Built == 1){
 				//chopping
 				if(buildingType == Building.choppinghut){
 				
-					obj = ObjTrees;
 					instcount = 0;
-					with(obj){
+					with(Entity){
 						if(collision_circle(x,y,other.Radius,other.id,0,0)){
 							instcount++;
 						}
@@ -127,9 +140,8 @@ if(Built == 1){
 				//picking
 				if(buildingType == Building.pickinghut){
 				
-					obj = ObjRocks;
 					instcount = 0;
-					with(obj){
+					with(Entity){
 						if(collision_circle(x,y,other.Radius,other.id,0,0)){
 							instcount++;
 						}
@@ -141,9 +153,8 @@ if(Built == 1){
 				//studying
 				if(buildingType == Building.studyhut){
 				
-					obj = ObjHut;
 					instcount = 0;
-					with(obj){
+					with(Entity){
 						if(collision_circle(x,y,other.Radius,other.id,0,0)){
 							instcount++;
 						}

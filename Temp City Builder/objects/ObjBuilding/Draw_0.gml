@@ -52,12 +52,7 @@ if(instance_exists(Worker) && Worker != 0){
 		draw_set_color(c_white);
 	}
 }
-if(ObjGame.debugToggle == 1){
-	draw_text(x,y,string(Residents)+"/"+string(Housing));
-	if(genStrength != 0){
-		draw_circle(x,y,Radius,1);
-	}
-}
+
 
 
 event_inherited();

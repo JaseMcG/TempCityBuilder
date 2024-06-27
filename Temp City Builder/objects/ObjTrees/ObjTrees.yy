@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "SprResourceHitBox",
-    "path": "sprites/SprResourceHitBox/SprResourceHitBox.yy",
+    "name": "SprResourceHitBoxTall",
+    "path": "sprites/SprResourceHitBoxTall/SprResourceHitBoxTall.yy",
   },
   "spriteMaskId": null,
   "visible": true,

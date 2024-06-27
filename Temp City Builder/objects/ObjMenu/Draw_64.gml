@@ -5,7 +5,8 @@
 	var offsetadgjusty = startingOffsetY; 
 	offsetadgjustx += 1;
 	offsetadgjusty += 1;
-if(gameStart = false){
+	
+if(gameStart == false){
 	
 	//draw main menu bg
 	draw_sprite_ext(bgSprite,0,1,1,global.GameSize,global.GameSize,0,c_white,1);
@@ -122,12 +123,21 @@ if(gameStart = false){
 	
 }
 
+
 if(global.GamePaused == true){
 	draw_set_alpha(.5);
 	draw_set_color(c_white);
 	draw_rectangle(0,0,Width,Height,0);
 	draw_set_alpha(1);
-	draw_sprite_ext(pauseSprite,0,Width/2,Height/2,global.GameSize, global.GameSize,0,c_white,1);
+	
+	//draw paused
+	//draw_sprite_ext(pauseSprite,0,Width/2,Height/2,global.GameSize, global.GameSize,0,c_white,1);
+	draw_set_font(global.fontMed);
+	draw_set_halign(fa_center);
+	//draw_set_color(c_maroon);
+	draw_text_transformed(Width/2,64,"PAUSED",global.GameSize*2,global.GameSize*2,0);
+	draw_set_halign(fa_left);
+	draw_set_color(c_white);
 	
 	offsetadgjustx = startingOffsetX;
 	offsetadgjusty = startingOffsetY; 
@@ -205,3 +215,4 @@ if(global.GamePaused == true){
 	}
 
 }
+

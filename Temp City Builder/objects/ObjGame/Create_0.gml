@@ -10,7 +10,7 @@ randomise();
 global.GameSpeed		= 1;
 global.GameSize			= 4;
 global.GamePaused		= -1;
-global.startingOffset	= .5; // either .5,
+global.startingOffset	= .5; 
 global.HumanList		= ds_list_create();
 global.BuildingList		= ds_list_create();
 
@@ -73,9 +73,24 @@ if(!instance_exists(ObjMenu)){
 
 //Inputes
 
+//mouse / interact, place, destroy
 mouse1		= mb_left;
 mouse2		= mb_right;
+
+//placement adjustment
 Rotate		= ord("R");
+
+//hot keys
+//building
+house		= ord("1");
+gather		= ord("2");
+chop		= ord("3");
+pick		= ord("4");
+study		= ord("5");
+//utility
+upgrade		= ord("U");
+destroy		= ord("D");
+research	= ord("R");
 
 window_set_cursor(cr_none);
 
@@ -109,3 +124,18 @@ enum Biome{
 	tundra,
 	arid
 }
+
+//Create Fonts
+
+//Medium Fonts
+global.fontMed		= font_add_sprite(SprFontMed,ord(" "),true,1);
+global.fontMedW		= font_add_sprite(SprFontMedWhite,ord(" "),true,1);
+
+
+
+
+
+
+
+
+

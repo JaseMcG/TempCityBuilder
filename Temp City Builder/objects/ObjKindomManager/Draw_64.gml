@@ -2,13 +2,19 @@
 // You can write your code in this editor
 var offsetadgjustx = -global.startingOffset;
 var offsetadgjusty = -global.startingOffset;
-draw_set_font(FonPixelUI);
-draw_set_halign(fa_center);
-var inc1 = .5;
-var inc2 = 1;
-var inc3 = 1.5;
-var inc4 = 2;
+draw_set_font(global.fontMed);
+//draw_set_halign(fa_center);
+var inc1 = 1;
+var inc2 = 1.5;
+var inc3 = 2;
+var inc4 = 2.5;
 
+//Border
+if(ObjMenu.gameStart == true){
+	
+	draw_sprite_stretched_ext(SprUIBorder,0,1*global.GameSize,1*global.GameSize,Width-(2*global.GameSize),16*global.GameSize,c_white,.8);
+	
+}
 
 
 //_xoffset = (floor((XOffset*offsetadgjustx)/global.GameSize) * global.GameSize);
@@ -23,8 +29,8 @@ if(Food){
 	if(Food >= 10000){offinc = inc4;}
 	offsetadgjustx += 1;
 	draw_sprite_ext(SprIconFood,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Food),1,1,0);
+	offsetadgjustx += .5 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Food),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 //draw food
@@ -36,8 +42,8 @@ if(Housing){
 	if(Housing >= 10000){offinc = inc4;}
 	offsetadgjustx += 1;
 	draw_sprite_ext(SprIconHousing,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Housing),1,1,0);
+	offsetadgjustx += .5 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Housing),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 //draw gold
@@ -49,8 +55,8 @@ if(Wealth){
 	if(Wealth >= 10000){offinc = inc4;}
 	offsetadgjustx += 1;
 	draw_sprite_ext(SprIconGold,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Wealth),1,1,0);
+	offsetadgjustx += .5 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Wealth),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 //draw happy
@@ -63,8 +69,8 @@ if(Happy){
 	if(Happy >= 7){happyframe = 0;}
 	if(Happy <= 3){happyframe = 2;}
 	draw_sprite_ext(SprIconHappy,happyframe,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Happy),1,1,0);
+	offsetadgjustx += .5 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Happy),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 //draw research
@@ -76,8 +82,8 @@ if(Research){
 	if(Research >= 10000){offinc = inc4;}
 	offsetadgjustx += 1;
 	draw_sprite_ext(SprIconResearch,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Research),1,1,0);
+	offsetadgjustx += .5 + offinc;;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Research),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 //draw lumber
@@ -89,8 +95,8 @@ if(Lumber){
 	if(Lumber >= 10000){offinc = inc4;}
 	offsetadgjustx += 1;
 	draw_sprite_ext(SprIconWood,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Lumber),1,1,0);
+	offsetadgjustx += .5 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Lumber),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 //draw stone
@@ -102,8 +108,8 @@ if(Stone){
 	if(Stone >= 10000){offinc = inc4;}
 	offsetadgjustx += 1;
 	draw_sprite_ext(SprIconStone,0,XOffset*offsetadgjustx,YOffset*offsetadgjusty,global.GameSize,global.GameSize,0,c_white,1);
-	offsetadgjustx += 2 + offinc;
-	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Stone),1,1,0);
+	offsetadgjustx += .5 + offinc;
+	draw_text_transformed(XOffset*offsetadgjustx,YOffset*offsetadgjusty ,string(Stone),global.GameSize,global.GameSize,0);
 	offsetadgjustx += offinc;
 }
 

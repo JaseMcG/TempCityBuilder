@@ -30,11 +30,12 @@ xTo			= 0;//the point where we want to travel to
 yTo			= 0;
 Dis			= 16 * global.GameSize;//distance to travel
 Dir			= 0;//direction to travel
-randomDir	= 90;//how much to randomize the direction to travel
+randomDir	= 60;//how much to randomize the direction to travel
 timePassed	= 0;
 Sleeping	= 0;
 
 atWork		= 0;
+atEntity	= 0;
 
 buildSpeed	= 1;//withgamespeed
 meterSize	= 3;
@@ -53,7 +54,7 @@ enum CharState{
 
 State		= CharState.idle;
 prevState	= State;
-idleTime	= 200;
+idleTime	= irandom_range(150,250);
 Timer		= 0;
 
 

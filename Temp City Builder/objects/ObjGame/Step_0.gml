@@ -7,13 +7,26 @@ global.genTick = 0;
 
 //inputes
 
+//mouse / interact, place, destroy
 global.m1			= mouse_check_button(mouse1);
 global.m2			= mouse_check_button(mouse2);
 
 global.m1Release	= mouse_check_button_released(mouse1);
 global.m2Release	= mouse_check_button_released(mouse2);
 
+//placement adjustment
 global.rotate		= keyboard_check_pressed(Rotate);
+
+//hot keys
+global.house		= keyboard_check_released(house);
+global.gather		= keyboard_check_released(gather);
+global.chop			= keyboard_check_released(chop);
+global.pick			= keyboard_check_released(pick);
+global.study		= keyboard_check_released(study);
+global.upgrade		= keyboard_check_released(upgrade);
+global.destroy		= keyboard_check_released(destroy);
+
+global.research		= keyboard_check_released(research);
 
 //generator
 global.genTimer += 1 * global.GameSpeed;
